@@ -4,9 +4,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # --- Email Settings ---
-EMAIL_SENDER = os.getenv("brenton.matuszczak@latitudeit.com.au")       # your Gmail address
-EMAIL_PASSWORD = os.getenv("mbqh rtle mdsr frmi")   # Gmail App Password
-EMAIL_RECIPIENT = os.getenv("brenton.matuszczak@latitudeit.com.au") # where to send the digest
+EMAIL_SENDER = os.getenv("EMAIL_SENDER")       # your Gmail address
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")   # Gmail App Password
+EMAIL_RECIPIENT = os.getenv("EMAIL_RECIPIENT") # where to send the digest
 
 # --- Google News RSS queries (AU-focused, no API key needed) ---
 SEARCH_QUERIES = [
