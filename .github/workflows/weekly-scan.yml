@@ -1,0 +1,33 @@
+name: Weekly BD Signal Scan
+
+on:
+  schedule:
+    # Every Monday at 8:00am AEST (Monday 22:00 UTC = Tuesday 8am AEST)
+    # AEST = UTC+10, so 8am Monday AEST = Sunday 10pm UTC
+    - cron: '0 22 * * 0'
+  workflow_dispatch:  # allows manual trigger from GitHub UI anytime
+
+jobs:
+  scan-and-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install feedparser requests python-dotenv spacy
+          python -m spacy download en_core_web_sm
+
+      - name: Run BD Scanner
+        env:
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
+        run: python main.py

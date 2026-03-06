@@ -1,0 +1,4 @@
+feedparser==6.0.11
+requests==2.31.0
+spacy==3.7.4
+python-dotenv==1.0.1
