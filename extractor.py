@@ -39,7 +39,7 @@ EXCLUDE_ORGS = {
     "business insider", "the guardian", "abc", "nine", "news.com.au",
     "igrow news", "startup daily", "mirage news", "asia gaming brief",
     "apdr", "asia pacific defence", "finsmes", "saas news", "the saas news",
-    "channel", "series",
+    "asia digest", "channel", "series",
 }
 
 # Patterns that indicate a fragment, not a company name
