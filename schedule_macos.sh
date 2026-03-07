@@ -26,7 +26,7 @@ cat > "$PLIST" << EOF
         <key>Weekday</key>
         <integer>1</integer>
         <key>Hour</key>
-        <integer>8</integer>
+        <integer>10</integer>
         <key>Minute</key>
         <integer>0</integer>
     </dict>

@@ -145,6 +145,13 @@ def score_articles(articles: list[dict], job_counts: dict = None) -> list[dict]:
 
         score = min(score, 100)
 
+        has_news_signal = len(data["signals"]) > 0
+        job_count = data["job_count"]
+
+        # Must have a news signal OR 10+ open roles to be worth surfacing
+        if not has_news_signal and job_count < 10:
+            continue
+
         if score < MIN_SCORE:
             continue
 
