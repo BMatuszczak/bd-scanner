@@ -109,6 +109,12 @@ def extract_companies(text: str) -> list[str]:
             # Drop anything that looks like a news source suffix e.g. "- Mirage News"
             if name.startswith("- "):
                 continue
+            # Drop names with commas — these are lists/industries, not companies
+            if "," in name:
+                continue
+            # Drop names longer than 5 words — almost certainly a sentence fragment
+            if len(name.split()) > 5:
+                continue
 
             companies.append(name)
 
