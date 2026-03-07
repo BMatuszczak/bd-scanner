@@ -50,7 +50,7 @@ EXCLUDE_COMPANIES = {
     "talent", "careerus solutions", "vivanti consulting", "whizdom",
     "nuage technology group", "isg", "paxus", "finite recruitment",
     "robert half", "hudson", "randstad", "manpower", "adecco",
-    "jobgether", "alignerr", "mindrift",
+    "jobgether", "alignerr", "mindrift", "crossing hurdles",
     # Government
     "australian taxation office", "queensland government",
     "australian government", "department of",
@@ -99,6 +99,16 @@ def fetch_job_counts() -> dict:
                 location = str(row.get("location") or "").lower()
 
                 if not company or company.lower() in EXCLUDE_COMPANIES:
+                    continue
+
+                # Filter companies that are clearly recruiters/staffing firms
+                company_lower = company.lower()
+                recruitment_words = [
+                    "recruitment", "recruiter", "staffing", "resourcing",
+                    "talent solutions", "talent group", "consulting group",
+                    "labour hire", "labor hire", "contracting",
+                ]
+                if any(w in company_lower for w in recruitment_words):
                     continue
 
                 # Skip jobs clearly not based in Australia
