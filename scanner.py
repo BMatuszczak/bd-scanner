@@ -16,7 +16,7 @@ HEADERS = {
 AU_RSS_FEEDS = [
     ("SmartCompany",        "https://www.smartcompany.com.au/feed/"),
     ("Startup Daily",       "https://www.startupdaily.net/feed/"),
-    ("ITNews",              "https://www.itnews.com.au/rss/"),
+    ("ZDNet",               "https://www.zdnet.com/topic/australia/rss.xml"),
     ("Dynamic Business",    "https://dynamicbusiness.com.au/feed/"),
     ("Which-50",            "https://which-50.com/feed/"),
     ("Innovation Aus",      "https://www.innovationaus.com/feed/"),
